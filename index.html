@@ -1,12 +1,23 @@
-
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
   <link rel="stylesheet" href="master.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<script src="master.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB1Hu_rXOrcTy4gZX3s5j2ggJkdPsO0-CY",
+    authDomain: "fir-mrtejas.firebaseapp.com",
+    databaseURL: "https://fir-mrtejas.firebaseio.com",
+    projectId: "fir-mrtejas",
+    storageBucket: "fir-mrtejas.appspot.com"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 <h2 style="text-align: center; font-family:arial;">Welcome to the store!</h2>
 <p>Get the cheapest price for high quality goods</p>
 <br>
@@ -45,21 +56,17 @@
   </div>
 </div>
 <div class="group">
+  <script src="master.js"></script>
   <h3>Product Inquiry</h3>
-  <form id="test" action="#" method="POST">
-  
-    <input class="form-control" style="width: 100%;" type="email" name="email" placeholder="Enter your email">
-  
-  <select name="select">
+  <input class="form-control" style="width: 100%;" type="email" id="mail" placeholder="Enter your email">
+  <select id="product">
       <option value="glide">Cruzer Glide</option>
       <option value="flair">Ultra Flair</option>
       <option value="fit">Ultra Fit</option>
     </select> 
     &emsp;
-    <input type="submit" value="Check">
-  </form>
+  <button id="selectbtn" onclick="writeUserData()">send</button>
 </div>
-<p id="out"></p>
 <br>
 <br>
 <br>

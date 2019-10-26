@@ -1,30 +1,11 @@
-(function() {
-	function toJSONString( form ) {
-		var obj = {};
-		var elements = form.querySelectorAll( "input, select" );
-		for( var i = 0; i < elements.length; ++i ) {
-			var element = elements[i];
-			var name = element.name;
-			var value = element.value;
 
-			if( name ) {
-				obj[ name ] = value;
-			}
-		}
-
-		return JSON.stringify( obj );
-	}
-
-	document.addEventListener( "DOMContentLoaded", function() {
-		var form = document.getElementById( "test" );
-		var output = document.getElementById( "out" );
-		form.addEventListener( "submit", function( e ) {
-			e.preventDefault();
-			var json = toJSONString( this );
-			output.innerHTML = json;
-
-		}, false);
-
-	});
-
-})();
+function writeUserData() {
+var product=document.getElementById("product")
+var mail=document.getElementById("mail")
+var submitbtn=document.getElementById("submitbtn")
+firebase.database().ref('inquiry/' + product.value).set({
+	product: product.value,
+	email: mail.value,
+  });
+alert("data added successfully")   
+}
